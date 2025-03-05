@@ -5,14 +5,16 @@ library(ggridges)
 library(viridis)
 
 ###parameter values
-v<-0.003
-r0<-10^(-9)
-m<-10
-alpha<-2
-beta<-1
-lifespan<-80
-runs<-5000
-logw<-rgamma(n=m*runs,shape=alpha,rate=beta)
+v<-0.003    #mutation rate
+r0<-10^(-9) #baseline cancer rate
+m<-10       #count up to m mutations
+alpha<-2    #each mutation's log carcinogenic effect is sampled from a gamma distribution with shape and scale parameters alpha and beta
+beta<-1     
+lifespan<-80 #look at lineage for 80 years
+
+####begin with Figure S6A
+runs<-5000   #sample carcinogenic effects for m*runs mutations
+logw<-rgamma(n=m*runs,shape=alpha,rate=beta) #log carcinogenic effects of mutations
 
 rbindlist(lapply(1:runs,function(l){
   
@@ -42,15 +44,11 @@ k1<-k
 colnames(k1)[is.element(colnames(k1),c("fn","cr"))]<-c(" normal tissue","cancer")
 k2<-k1%>%pivot_longer(cols=c(" normal tissue","cancer"),names_to="nc",values_to="frequency")
 ggplot(k2,aes(x=t,y=frequency,fill=factor(k)))+facet_wrap(~nc,nrow=2)+geom_col(position="stack")+theme_classic()+scale_fill_viridis(direction=-1,option="G",discrete=T)+labs(x="age",y="simulated frequency",fill="number of\ncarcinogenic\nmutations")
-ggsave("drivers vs age.pdf",width=4,height=3.5)
-####that was Figure 6A
 
-#now for figures S6ABC
-setwd("~/HMS Dropbox/Naxerova_Lab/Dave/Causation/to publish/figures/supplementary figures/plots")
+#next for figures S6BCD
 
-m<-20
+m<-20 #count up to m mutations
 
-r0<-10^(-9)
 par<-expand.grid(v=c(0.001,0.003,0.01))
              
 rbindlist(lapply(1:2000,function(l){
@@ -87,19 +85,15 @@ mutations1<-mutations%>%group_by(v,t,k)%>%summarise(fn=mean(fn),cr=mean(1-exp(-r
 
 mutations1%>%summarise(mean_k=weighted.mean(k,cr))->mean_k
 ggplot(mean_k,aes(x=t,y=mean_k,colour=factor(v)))+geom_line()+theme_classic()+scale_colour_viridis(breaks=sort(unique(mutations$v),decreasing=T),direction=-1,option="G",discrete=T)+labs(x="age",y="expected number of mutations in cancer",colour="mutation\nrate")+theme(plot.subtitle = element_text(hjust = 0.5))
-ggsave("dmb vs age.pdf",width=4,height=3.5)
 
 inc<-mutations1%>%group_by(v,t)%>%summarise(incidence=sum(cr))
 ggplot(inc,aes(x=t,y=incidence,colour=factor(v)))+geom_line()+theme_classic()+scale_colour_viridis(breaks=sort(unique(inc$v),decreasing=T),direction=-1,option="G",discrete=T)+labs(x="age",y="cancer rate",colour="mutation\nrate")+scale_y_continuous(trans="log10")+theme(plot.subtitle = element_text(hjust = 0.5))
-ggsave("incidence vs age.pdf",width=4,height=3.5)
 
 
 meanlogw<-mutations%>%filter(k>0)%>%group_by(v,t)%>%summarise(empiricalmeanlogw=weighted.mean(cumlogw/k,1-exp(-r0*exp(cumlogw)*fn)))
 ggplot(meanlogw,aes(x=t,y=empiricalmeanlogw,colour=factor(v)))+geom_line()+theme_classic()+scale_colour_viridis(breaks=sort(unique(inc$v),decreasing=T),direction=-1,option="G",discrete=T)+labs(x="age",y="mean log carcinogenic effect of mutations in cancers",colour="mutation\nrate")+theme(plot.subtitle = element_text(hjust = 0.5))
-ggsave("carcinogenic effect vs age.pdf",width=4,height=3.5)
 
 
-setwd("~/HMS Dropbox/Naxerova_Lab/Dave/Causation/to publish/figures/Figure 6 multihit")
 
 #Figures 6B and C
 runs<-20
@@ -145,10 +139,8 @@ ridgeplotsk<-ridgeplotsk%>%group_by(k)%>%reframe(logw=logw,dens=cr/sum(cr),mean_
 ridgeplotst<-ridgeplots%>%group_by(t,logw)%>%summarise(cr=mean(cr))%>%group_by(t)%>%reframe(logw=logw,dens=cr/sum(cr),mean_logw=weighted.mean(logw,cr))
 
 ggplot(ridgeplotsk)+geom_ridgeline(aes(y=k,group=factor(k),height=20*dens,fill=mean_logw,x=logw))+coord_flip()+theme_classic()+scale_fill_viridis(option="G",begin=0.3,end=1,limits=c(min(ridgeplotst$mean_logw,ridgeplotsk$mean_logw),max(ridgeplotst$mean_logw,ridgeplotsk$mean_logw)))+labs(x="log carcinogenic effect of mutations",fill="mean log\ncarcinogenic\neffect",y="number of carcinogenic\nmutations per cancer")+scale_y_continuous(breaks=seq(1.3,mmax+0.3,1),labels=1:mmax)#+theme(legend.position="bottom")
-ggsave("dmb_vs_ce.pdf",width=3.5,height=3.5)
 
 ggplot(filter(ridgeplotst))+geom_ridgeline(aes(y=t,group=factor(t),height=500*dens,fill=mean_logw,x=logw))+coord_flip()+theme_classic()+scale_y_continuous(breaks=seq(20,80,20)+4,labels=seq(20,80,20))+scale_fill_viridis(option="G",begin=0.3,end=1,limits=c(min(ridgeplotst$mean_logw,ridgeplotsk$mean_logw),max(ridgeplotst$mean_logw,ridgeplotsk$mean_logw)))+labs(x="log carcinogenic effect of mutations",fill="mean log\ncarcinogenic\neffect",y="cancer initiation age\n")
-ggsave("age_vs_ce.pdf",width=3.5,height=3.5)
 
 
 
