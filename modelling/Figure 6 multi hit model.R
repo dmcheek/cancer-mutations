@@ -48,9 +48,9 @@ ggplot(k2,aes(x=t,y=frequency,fill=factor(k)))+facet_wrap(~nc,nrow=2)+geom_col(p
 
 m<-20 #count up to m mutations
 
-par<-expand.grid(v=c(0.001,0.003,0.01))
+par<-expand.grid(v=c(0.001,0.003,0.01))  #vary the mutation rate
              
-rbindlist(lapply(1:2000,function(l){
+rbindlist(lapply(1:5000,function(l){
   
   logw<-rgamma(n=m,shape=alpha,rate=beta)
   rbindlist(lapply(1:nrow(par),function(b){
@@ -79,8 +79,7 @@ rbindlist(lapply(1:2000,function(l){
 }
 ))->mutations
 
-mutations$fn[mutations$fn>1]<-1 #ridding some numerical instability
-mutations1<-mutations%>%group_by(v,t,k)%>%summarise(fn=mean(fn),cr=mean(1-exp(-r0*exp(cumlogw)*fn)))
+mutations1<-mutations%>%group_by(v,t,k)%>%summarise(fn=mean(fn),cr=mean(r0*exp(cumlogw)*fn))
 
 mutations1%>%summarise(mean_k=weighted.mean(k,cr))->mean_k
 ggplot(mean_k,aes(x=t,y=mean_k,colour=factor(v)))+geom_line()+theme_classic()+scale_colour_viridis(breaks=sort(unique(mutations$v),decreasing=T),direction=-1,option="G",discrete=T)+labs(x="age",y="expected number of mutations in cancer",colour="mutation\nrate")+theme(plot.subtitle = element_text(hjust = 0.5))
@@ -89,7 +88,7 @@ inc<-mutations1%>%group_by(v,t)%>%summarise(incidence=sum(cr))
 ggplot(inc,aes(x=t,y=incidence,colour=factor(v)))+geom_line()+theme_classic()+scale_colour_viridis(breaks=sort(unique(inc$v),decreasing=T),direction=-1,option="G",discrete=T)+labs(x="age",y="cancer rate",colour="mutation\nrate")+scale_y_continuous(trans="log10")+theme(plot.subtitle = element_text(hjust = 0.5))
 
 
-meanlogw<-mutations%>%filter(k>0)%>%group_by(v,t)%>%summarise(empiricalmeanlogw=weighted.mean(cumlogw/k,1-exp(-r0*exp(cumlogw)*fn)))
+meanlogw<-mutations%>%filter(k>0)%>%group_by(v,t)%>%summarise(empiricalmeanlogw=weighted.mean(cumlogw/k,r0*exp(cumlogw)*fn))
 ggplot(meanlogw,aes(x=t,y=empiricalmeanlogw,colour=factor(v)))+geom_line()+theme_classic()+scale_colour_viridis(breaks=sort(unique(inc$v),decreasing=T),direction=-1,option="G",discrete=T)+labs(x="age",y="mean log carcinogenic effect of mutations in cancers",colour="mutation\nrate")+theme(plot.subtitle = element_text(hjust = 0.5))
 
 
