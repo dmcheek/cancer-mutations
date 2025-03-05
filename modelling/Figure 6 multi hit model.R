@@ -39,10 +39,9 @@ rbindlist(lapply(1:runs,function(l){
 
 mutations%>%group_by(t,k)%>%summarise(fn=mean(fn),cr=mean(fn*cumw))->crk
 crk%>%group_by(t)%>%reframe(k=k,fn=fn/sum(fn),cr=cr/sum(cr))->k
-k1<-k%>%group_by(k)%>%summarise(maxcr=max(cr))%>%filter(maxcr>0.001)%>%left_join(k)
-k1<-k
-colnames(k1)[is.element(colnames(k1),c("fn","cr"))]<-c(" normal tissue","cancer")
-k2<-k1%>%pivot_longer(cols=c(" normal tissue","cancer"),names_to="nc",values_to="frequency")
+
+colnames(k)[is.element(colnames(k),c("fn","cr"))]<-c(" normal tissue","cancer")
+k2<-k%>%pivot_longer(cols=c(" normal tissue","cancer"),names_to="nc",values_to="frequency")
 ggplot(k2,aes(x=t,y=frequency,fill=factor(k)))+facet_wrap(~nc,nrow=2)+geom_col(position="stack")+theme_classic()+scale_fill_viridis(direction=-1,option="G",discrete=T)+labs(x="age",y="simulated frequency",fill="number of\ncarcinogenic\nmutations")
 
 #next for figures S6BCD
