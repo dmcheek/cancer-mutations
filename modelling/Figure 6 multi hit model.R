@@ -13,14 +13,14 @@ beta<-1
 lifespan<-80 #look at lineage for 80 years
 
 ####begin with Figure S6A
-runs<-5000   #sample carcinogenic effects for m*runs mutations
-logw<-rgamma(n=m*runs,shape=alpha,rate=beta) #log carcinogenic effects of mutations
+runs<-10000   #number of carcinogenic effect sequences to simulate
+logw<-rgamma(n=runs+m-1,shape=alpha,rate=beta) #log carcinogenic effects of mutations
 
 rbindlist(lapply(1:runs,function(l){
   
-  logw<-logw[((l-1)*m+1):(l*m)]
+  logw<-logw[l:(l+m-1)]
   
- 
+  
   Q<-matrix(data=0,nrow=m+1,ncol=m+1)
   for (i in 1:m){
     Q[i,i]<--v-r0*exp(c(0,cumsum(logw)))[i]
