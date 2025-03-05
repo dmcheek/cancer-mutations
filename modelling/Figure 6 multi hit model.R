@@ -94,7 +94,7 @@ ggplot(meanlogw,aes(x=t,y=empiricalmeanlogw,colour=factor(v)))+geom_line()+theme
 
 
 #Figures 6B and C
-runs<-20
+runs<-100
 m<-10
 logws<-matrix(rgamma(n=m*runs,shape=alpha,rate=beta),nrow=runs)
 #######
