@@ -3,12 +3,8 @@ library(tidyverse)
 library(expm)
 library(ggridges)
 library(viridis)
-setwd("~/HMS Dropbox/Naxerova_Lab/Dave/Causation/to publish/figures/Figure 6 multihit")
 
-
-
-
-
+###parameter values
 v<-0.003
 r0<-10^(-9)
 m<-10
