@@ -1,5 +1,8 @@
 library(tidyverse)
 library(viridis)
+library(effectsize)
+library(ggrepel)
+library(data.table)
 
 samplesf<-read.csv("SCNAs_vs_gene_mutations.csv")
 
