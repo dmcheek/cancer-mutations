@@ -3,14 +3,14 @@ library(viridis)
 
 
 
+
+
   expand.grid(t=0:50,s=seq(0,0.1,0.005))%>%mutate(f=exp(s*t))->expocloneplot
 
 ggplot(expocloneplot,aes(x=t,y=f,colour=s,group=factor(s)))+geom_line()+scale_y_continuous(trans="log10")+theme_classic()+labs(x="years after mutation arrival",y="expected size of mutant\nclone in normal tissue",colour="selection in\nnormal tissue")+ scale_colour_viridis(option="mako")
 
-Ages<-tibble(t=0:80)
-
-  expand.grid(t=0:80,s=seq(0,0.1,0.005))%>%mutate(f=exp(s*t))%>%left_join(Ages)->cloneplot
-
+  expand.grid(t=0:80,s=seq(0,0.1,0.005))%>%mutate(f=exp(s*t))->cloneplot
+  
 cloneplot%>%group_by(s)%>%mutate(cumsumf=cumsum(f))%>%summarise(meanf=mean(f),mean_age=weighted.mean(t,cumsumf*t^3))->cloneplot2
 cloneplot2<-cloneplot2%>%mutate(rel_mean_age=mean_age-cloneplot2$mean_age[cloneplot2$s==0])
 ggplot(filter(mutate(cloneplot2,ymin=-2,ymax=0,xmin=0,xmax=1000)),aes(x=meanf,y=rel_mean_age,colour=s,group=factor(s)))+geom_point(show.legend=F)+scale_x_continuous(trans="log10",limits=c(1,NA))+geom_hline(yintercept=0,linetype="dotted")+theme_classic()+
@@ -18,13 +18,16 @@ ggplot(filter(mutate(cloneplot2,ymin=-2,ymax=0,xmin=0,xmax=1000)),aes(x=meanf,y=
   )+scale_y_continuous()+scale_colour_viridis(option="G")
 
 
+ggplot(tibble())+geom_line()+scale_x_continuous(trans="log10",limits=c(1,300))+geom_hline(yintercept=0,linetype="dotted")+theme_classic()+
+  labs(x="frequency of mutation z normalised\nby neutral mutations in cancers",y="mean age for mutation z relative\nto neutral mutations in cancers",colour="growth curve\nin normal tissue"
+  )+scale_y_continuous(limits=c(-5,5))
+
 
 
 ####figure S4AB
 
 ######S4A
 
-Ages<-tibble(t=0:50)                 
 a<-10^3                             
 rbind(
   expand.grid(model="exponential model",t=0:80,s=seq(0,0.2,0.005))%>%mutate(f=exp(s*t)),
@@ -32,7 +35,7 @@ rbind(
   expand.grid(model="Gompertz",t=0:80,s=seq(0,0.2,0.005))%>%mutate(f=exp(log(a)*(1-exp(-s*t/log(a))))),
   expand.grid(model="neutral",t=0:80,s=seq(0,0.2,0.005))%>%mutate(f=1),
   expand.grid(model="polynomial",t=0:80,s=seq(0,0.2,0.005))%>%mutate(f=(s*t/3+1)^3)
-)%>%left_join(Ages)->cloneplot
+)->cloneplot
 ggplot(filter(cloneplot,model!="neutral",t<=50),aes(x=t,y=f,colour=s,group=factor(s)))+facet_wrap(~model,nrow=1)+geom_line()+theme_classic()+labs(x="years after mutation arrival",y="expected size of mutant\nclone in normal tissue",colour="initial\ngrowth\nrate"
 )+scale_colour_viridis(option="mako")+scale_y_continuous(trans="log10")
 
