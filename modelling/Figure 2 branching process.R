@@ -1,9 +1,7 @@
-setwd("~/HMS Dropbox/Naxerova_Lab/Dave/Causation/to publish/figures/Figure 2")
-library(ggh4x)
 library(tidyverse)
 library(viridis)
 library(data.table)
-
+library(ggh4x)
 
 
 
@@ -76,11 +74,8 @@ ggplot(data=filter(sw,w==1))+geom_line(mapping=aes(x=t,y=normal_tissue_mut_f,col
        x="age")+
   guides(colour = "colorbar")+
   theme_classic()+
-  # theme(legend.position = c(0.1, 0.9))+
-  #scale_colour_viridis(option="G",discrete=F,breaks=c(0,0.05,0.1,0.15))+
   scale_color_gradient(high=viridis(n=1,begin=0.8,end=0.8,option="G",alpha=0.3),low="black",breaks=c(0,0.05,0.1,0.15))+
   scale_linetype_discrete(breaks=c(100,1))
-ggsave("single rainbow.pdf",width=5,height=4.2)
 
 
 ggplot(data=filter(sw,is.element(w,c(1,100))))+geom_line(mapping=aes(x=t,y=mut_f,colour=s,group=paste(s,w),linetype=factor(w)),size=1.5)+
@@ -92,13 +87,10 @@ ggplot(data=filter(sw,is.element(w,c(1,100))))+geom_line(mapping=aes(x=t,y=mut_f
        x="cancer initiation age")+
   guides(colour = "none")+
   theme_classic()+
-  # theme(legend.position = c(0.1, 0.9))+
-  #scale_colour_viridis(option="G",discrete=F,breaks=c(0,0.05,0.1,0.15))+
   scale_color_gradient(high=viridis(n=1,begin=0.8,end=0.8,option="G",alpha=0.3),low="black",breaks=c(0,0.05,0.1,0.15))+
   scale_linetype_manual(breaks=c(100,1),values=c("dotted","solid"))+
   theme(legend.key.width = unit(1.5, "cm"))
 
-ggsave("double rainbow.pdf",width=5,height=4.2)
 
 
 
@@ -116,21 +108,15 @@ ggplot(mean_freqs,aes(x=factor(s),y=factor(w),fill=mean_freq))+geom_tile()+geom_
 
 ggplot(mean_freqs,aes(x=factor(s),y=factor(w),fill=dNdS))+geom_tile()+geom_text(aes(label=dNdSlabel)#,color=(dNdS > 1000)),show.legend=F
                                                                                     )+
-  #scale_color_manual(values=c("white","black"))+
-  #scale_fill_viridis(option="B",trans="log10")+
   scale_fill_gradient(low="white",high=viridis(n=1,begin=0.8,end=0.8,option="G",alpha=1),trans="log10")+
   theme_classic()+labs(x="selective effect in normal tissue",y="carcinogenic effect",fill="frequency\nrelative to\nneutral\nmutations\nin cancers")
-ggsave("dNdS.pdf",width=5.5,height=4)
 mean_ages<-sw%>%filter(is.element(s,seq(0,0.15,0.03)))%>%group_by(s,w)%>%summarise(mean_age=weighted.mean(t,mut_f*cancer_rate))
 ggplot(mean_ages,aes(x=factor(s),y=factor(w)))+geom_tile(aes(fill=mean_age))+
-  #scale_fill_viridis(option="H",trans="reverse")+
   scale_fill_gradient2(high=viridis(n=1,begin=0.8,end=0.8,option="mako",alpha=1),low=viridis(n=1,begin=0,end=0,option="viridis",alpha=0.7),mid="white",midpoint=mean_ages$mean_age[mean_ages$s==0&mean_ages$w==1])+
   geom_text(aes(label=signif(mean_age,3)
-                #,color=(mean_age < 70&mean_age>61)),show.legend=F
                 ))+
                 scale_color_manual(values=c("white","black"))+
   theme_classic()+labs(x="selective effect in normal tissue",y="carcinogenic effect",fill="mean age\nin cancers")+ guides(fill = guide_colorbar(reverse = T))
-ggsave("meanage.pdf",width=5.5,height=4)
 
 
 #We also need parameter exploration for figure S2
@@ -175,18 +161,14 @@ sw1<-sw%>%left_join(tibble(theta=unique(sw$theta),theta1=theta1))%>%left_join(ti
 mean_freqs<-sw1%>%group_by(s,w,theta1,b1,R1)%>%summarise(f=sum(mutant_cancer_rate))%>%group_by(theta1,b1,R1)%>%reframe(s=s,w=w,dNdS=f/f[s==0&w==1])
 
 ggplot(mean_freqs,aes(x=factor(s),y=factor(w),fill=dNdS))+geom_tile()+facet_nested(b1~R1+theta1)+
-  #scale_fill_viridis(option="G",trans="log10",direction=1)+
   scale_fill_gradient(trans="log10",high=viridis(n=1,begin=0.8,end=0.8,option="mako",alpha=1),low="white")+
   theme_classic()+labs(x="selective effect in normal tissue",y="carcinogenic effect",fill="mutation\nfrequency\nrelative to\nneutral\nmutations\nin cancers")+scale_x_discrete(breaks=c(0,0.15))+scale_y_discrete(breaks=c(1,10^5))
-ggsave("dNdSS2.pdf",width=8,height=4)
 
 mean_ages1<-sw1%>%group_by(s,w,b1,theta1,R1)%>%summarise(mean_age=weighted.mean(t,mutant_cancer_rate))%>%group_by(theta1,b1,R1)%>%reframe(s=s,w=w,rel_mean_age=mean_age-mean_age[s==0&w==1])
 
 ggplot(mean_ages1,aes(x=factor(s),y=factor(w),fill=rel_mean_age))+geom_tile()+facet_nested(b1~R1+theta1)+
-  #scale_fill_viridis(option="H",trans="reverse",direction=1,breaks=c(40,50,60,70))+
   scale_fill_gradient2(low=viridis(n=1,begin=0.8,end=0.8,option="mako",alpha=1),high=viridis(n=1,begin=0,end=0,option="viridis",alpha=0.7),mid="white",midpoint=0,trans="reverse")+
    theme_classic()+labs(x="selective effect in normal tissue",y="carcinogenic effect",fill="mutation\nmean age\nrelative to\nneutral\nmutations\nin cancers")+scale_x_discrete(breaks=c(0,0.15))+scale_y_discrete(breaks=c(1,10^5))
-ggsave("meanageS2.pdf",width=8,height=4)
 
 
 
