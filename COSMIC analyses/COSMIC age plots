@@ -1,0 +1,28 @@
+
+age_summary<-read.csv("COSMIC gene statistics.csv")
+
+cancer<-"BRCA" #put in here your cancer type of choice
+age_summaryf<-filter(age_summary,`cancer type`==cancer) 
+ggplot(age_summaryf,aes(x=mut_norm,y=age_diff,label=Gene,ymin=age_diff_l,ymax=age_diff_h))+
+  geom_point(aes(colour=age_diff_p))+geom_text_repel()+
+  geom_errorbar(width=0,alpha=0.2)+
+  scale_colour_gradient(trans=my_trans,breaks=c(0,0.01,0.1,1),labels=c(0,0.01,0.1,1),low=viridis(n=1,begin=0,end=0,option="viridis",alpha=1),high=viridis(n=1,begin=0.8,end=0.8,option="mako",alpha=0.4),limits=c(0,1))+
+  geom_hline(yintercept=0,linetype="dotted",size=1)+
+  labs(title=paste(cancer,": ",age_summaryf$n_samples[1]," samples",sep=""),colour="quantile\nof null\ndistribution",
+       y="mean patient age relative\nto synonymous mutations",x="mutation density normalized by exome in cancers")+theme_classic()+
+  theme_classic()+scale_x_continuous(trans="log10")
+
+cancer_n<-age_summary%>%group_by(`cancer type`)%>%summarise(n_mut=sum(n_mut),n_samp=n_samples[1],n_gene=n(),f_signif=mean(age_diff_p<0.05),f_old_signif=mean(age_diff_p>0.95))%>%filter(n_gene>=10)
+ggplot(cancer_n,aes(y=reorder(`cancer type`,desc(f_signif)),x=f_signif))+geom_col()+labs(y="",x="fraction of purported driver genes\nwith young-age bias, p<0.05")+geom_vline(xintercept=0.05)+theme_classic()+scale_x_continuous(breaks=c(seq(0,0.5,0.1),0.05))
+ggplot(cancer_n,aes(y=reorder(`cancer type`,desc(f_old_signif)),x=f_old_signif))+geom_col()+labs(y="",x="fraction of purported driver genes\nwith old-age bias, p>0.95")+geom_vline(xintercept=0.05)+theme_classic()+scale_x_continuous(breaks=c(seq(0,0.5,0.1),0.05))
+
+
+
+age_summaryf<-age_summary%>%filter(is.element(`cancer type`,unique(TCGA_n$`cancer type`)))
+rbind(
+  tibble(filter=1,y=seq(0,1,0.01),x=unname(quantile(age_summaryf$age_diff_p[age_summaryf$mut_norm>1],seq(0,1,0.01)))),
+      tibble(filter=3,y=seq(0,1,0.01),x=unname(quantile(age_summaryf$age_diff_p[age_summaryf$mut_norm>3],seq(0,1,0.01)))),
+      tibble(filter=10,y=seq(0,1,0.01),x=unname(quantile(age_summaryf$age_diff_p[age_summaryf$mut_norm>10],seq(0,1,0.01)))),
+      tibble(filter=30,y=seq(0,1,0.01),x=unname(quantile(age_summaryf$age_diff_p[age_summaryf$mut_norm>30],seq(0,1,0.01))))
+)->plot
+ggplot(plot,aes(x=x,y=y,colour=factor(filter)))+geom_line()+geom_abline(slope=1,intercept=0,linetype="dashed")+labs(x="x",y="fraction of purported driver genes with p<x",colour="minimum\nmutation\ndensity\nrelative\nto exome")+theme_classic()+scale_colour_viridis(discrete=T,option="mako")+guides (colour = guide_legend(reverse = TRUE))
