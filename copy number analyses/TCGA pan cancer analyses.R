@@ -1,7 +1,7 @@
 library(tidyverse)
 library(viridis)
 
-samplesf<-read.csv(".csv")
+samplesf<-read.csv("SCNAs_vs_gene_mutations.csv")
 
 samplesf%>%filter(!any_alt|alt)%>%group_by(TCGA,Gene,TOG,CNA_type)%>%summarise(n_alt=sum(alt),n_WT=sum(!alt),
                                                                                alt_age_bias=
