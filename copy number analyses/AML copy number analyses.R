@@ -1,11 +1,9 @@
 library(tidyverse)
-library(readxl)
 library(viridis)
 library(ggrepel)
 library(weights)
 library(effectsize)
 library(ggpubr)
-library(data.table)
 
 bloodCNAburdens<-read_csv("blood SCNA burdens.csv")
 ggplot(bloodCNAburdens,aes(x=CNAb,y=f,colour=group))+geom_line()+scale_y_continuous(trans="log10")+theme_classic()+labs(x="number of SNCAs per sample",y="fraction of samples",colour="")+scale_colour_manual(values=c(viridis(n=1,begin=0.2,end=0.2,option="mako"),viridis(n=1,begin=0.8,end=0.8,option="mako")))
