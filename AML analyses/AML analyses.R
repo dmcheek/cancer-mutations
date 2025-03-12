@@ -81,10 +81,6 @@ ggplot(AMLCH_overview,aes(x=1000*cellfrac_N/L,y=AML_mean_age,label=Gene))+geom_s
   labs(y="mean age in AML",x="mutations per kilobase per normal blood cell",colour="dN/dS>1\nin normal\nblood:\n-log10(q)",shape="dN/dS>1\nin normal\nblood",caption=paste("rho=",signif(unname(sp$estimate),2),", p=",signif(sp$p.value,2),sep=""))+theme_classic()#+scale_colour_viridis(direction=-1,option="G",breaks=c(0,3,6),limits=c(0,6),labels=c(0,3,">6"))
  
 
-ggplot(AMLCH_overview,aes(x=pmin(ce_o,30000),y=AML_mean_age,label=Gene))+geom_point()+scale_shape_manual(values=c(16,8))+geom_text_repel()+scale_x_continuous(trans="log10")+geom_smooth(method="lm",se=F)+
-  labs(y="mean age in AML",x="carcinogenic effect estimate: old-onset AML",colour="dN/dS>1\nin normal\nblood:\n-log10(q)",caption=paste("rho=",signif(unname(sp$estimate),2),", p=",signif(sp$p.value,2),sep=""))+theme_classic()#+scale_colour_viridis(direction=-1,option="G",breaks=c(0,3,6),limits=c(0,6),labels=c(0,3,">6"))
-ggplot(AMLCH_overview,aes(x=ce_y,y=AML_mean_age,label=Gene))+geom_point()+scale_shape_manual(values=c(16,8))+geom_text_repel()+scale_x_continuous(trans="log10")+geom_smooth(method="lm",se=F)+
-  labs(y="mean age in AML",x="carcinogenic effect estimate: young-onset AML",colour="dN/dS>1\nin normal\nblood:\n-log10(q)",caption=paste("rho=",signif(unname(sp$estimate),2),", p=",signif(sp$p.value,2),sep=""))+theme_classic()#+scale_colour_viridis(direction=-1,option="G",breaks=c(0,3,6),limits=c(0,6),labels=c(0,3,">6"))
 
 spceyage<-cor.test(AMLCH_overview$AML_mean_age,AMLCH_overview$ce_y,method="spearman")
 spceoage<-cor.test(AMLCH_overview$AML_mean_age,AMLCH_overview$ce_o,method="spearman")
@@ -104,8 +100,6 @@ rbind(transmute(AMLCH_overview,Gene=Gene,group="combined",ce=(rank(ce_y)+rank(ce
       transmute(AMLCH_overview,Gene="",group="old",ce=rank(ce_o),AML_mean_age=AML_mean_age,xmin=pmin(rank(ce_y),rank(ce_o)),xmax=pmax(rank(ce_y),rank(ce_o)))
 )->a3
 ggplot(a3,aes(x=ce,y=AML_mean_age,label=Gene,colour=group,xmin=xmin,xmax=xmax,shape=group))+scale_colour_manual(values=c(viridis(n=1,begin=0.5,end=0.5,option="mako"),viridis(n=1,begin=0,end=0,option="mako"),viridis(n=1,begin=1,end=1,option="mako")))+geom_smooth(method="lm",se=F,show.legend=F)+geom_errorbarh(height=0,colour="gray")+geom_point()+geom_text_repel(show.legend=F,colour="black")+
-  labs(y="mean age in AML",x="rank carcinogenic effect estimate",colour="age group for\ncarcinogenic\neffect",shape="age group for\ncarcinogenic\neffect")+theme_classic()
-ggplot(filter(a3,group=="combined"),aes(x=ce,y=AML_mean_age,label=Gene,xmin=xmin,xmax=xmax))+scale_colour_manual(values=c(viridis(n=1,begin=0.5,end=0.5,option="mako"),viridis(n=1,begin=0,end=0,option="mako"),viridis(n=1,begin=1,end=1,option="mako")))+geom_smooth(method="lm",se=F,show.legend=F)+geom_errorbarh(height=0,colour="gray")+geom_point()+geom_text_repel(show.legend=F,colour="black")+
   labs(y="mean age in AML",x="rank carcinogenic effect estimate",colour="age group for\ncarcinogenic\neffect",shape="age group for\ncarcinogenic\neffect")+theme_classic()
 
 AMLcors<-tibble(variable=c("mutation frequency;\nAML","mutation density;\nAML","carcinogenic effect;\nyoung","carcinogenic effect;\nold","carcinogenic effect;\ncombined","mutation frequency;\nnormal blood","mutation density;\nnormal blood"),
