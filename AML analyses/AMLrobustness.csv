@@ -1,0 +1,466 @@
+young_upper,old_lower,comparison,correlation
+5,36,mutation frequencies,-0.017576658562329695
+5,36,"carcinogenic effect
+estimates",0.31354583110475487
+6,36,mutation frequencies,-0.05969431209847821
+6,36,"carcinogenic effect
+estimates",0.31751476567570114
+7,36,mutation frequencies,-0.21075882649781438
+7,36,"carcinogenic effect
+estimates",0.27713010237648117
+8,36,mutation frequencies,-0.22369001334796484
+8,36,"carcinogenic effect
+estimates",0.28628062462476117
+9,36,mutation frequencies,-0.20925839958357997
+9,36,"carcinogenic effect
+estimates",0.31599506561575685
+10,36,mutation frequencies,-0.239602958273565
+10,36,"carcinogenic effect
+estimates",0.31729545683228255
+11,36,mutation frequencies,-0.28651209585825443
+11,36,"carcinogenic effect
+estimates",0.38101462644204426
+12,36,mutation frequencies,-0.2183044305207055
+12,36,"carcinogenic effect
+estimates",0.36280914941068376
+13,36,mutation frequencies,-0.16896396004550832
+13,36,"carcinogenic effect
+estimates",0.4109236244221365
+14,36,mutation frequencies,-0.10186214211107435
+14,36,"carcinogenic effect
+estimates",0.4850459237641041
+15,36,mutation frequencies,-0.09345514346231648
+15,36,"carcinogenic effect
+estimates",0.45903809943358914
+16,36,mutation frequencies,-0.05738543592939287
+16,36,"carcinogenic effect
+estimates",0.4434334048352802
+17,36,mutation frequencies,-0.003258404366100865
+17,36,"carcinogenic effect
+estimates",0.46163888186664065
+18,36,mutation frequencies,-0.014959356712763166
+18,36,"carcinogenic effect
+estimates",0.4858720620009594
+19,36,mutation frequencies,-0.01951220440795196
+19,36,"carcinogenic effect
+estimates",0.5012987012987014
+20,36,mutation frequencies,-0.008455288576779182
+20,36,"carcinogenic effect
+estimates",0.5623376623376622
+21,36,mutation frequencies,-0.005203254508787189
+21,36,"carcinogenic effect
+estimates",0.5636363636363636
+22,36,mutation frequencies,0.04687508940722296
+22,36,"carcinogenic effect
+estimates",0.6506493506493507
+23,36,mutation frequencies,0.06125800208269626
+23,36,"carcinogenic effect
+estimates",0.648051948051948
+24,36,mutation frequencies,0.07747410610360461
+24,36,"carcinogenic effect
+estimates",0.6909090909090909
+25,36,mutation frequencies,0.12821364189170834
+25,36,"carcinogenic effect
+estimates",0.7168831168831169
+26,36,mutation frequencies,0.10673622979817343
+26,36,"carcinogenic effect
+estimates",0.7246753246753246
+27,36,mutation frequencies,0.2680160700793235
+27,36,"carcinogenic effect
+estimates",0.7311688311688311
+28,36,mutation frequencies,0.3233574630869267
+28,36,"carcinogenic effect
+estimates",0.7480519480519481
+29,36,mutation frequencies,0.3145563365316994
+29,36,"carcinogenic effect
+estimates",0.7493506493506494
+30,36,mutation frequencies,0.336041616706337
+30,36,"carcinogenic effect
+estimates",0.7480519480519481
+31,36,mutation frequencies,0.3998700455115589
+31,36,"carcinogenic effect
+estimates",0.7844155844155843
+32,36,mutation frequencies,0.3958401249016619
+32,36,"carcinogenic effect
+estimates",0.7792207792207793
+33,36,mutation frequencies,0.4014955335014433
+33,36,"carcinogenic effect
+estimates",0.7792207792207793
+34,36,mutation frequencies,0.40962297345086524
+34,36,"carcinogenic effect
+estimates",0.7662337662337663
+35,36,mutation frequencies,0.404939897887907
+35,36,"carcinogenic effect
+estimates",0.7636363636363636
+5,50,mutation frequencies,-0.09547988428957493
+5,50,"carcinogenic effect
+estimates",0.260626703492138
+6,50,mutation frequencies,-0.13725233366626396
+6,50,"carcinogenic effect
+estimates",0.25136585615993007
+7,50,mutation frequencies,-0.30210969983526914
+7,50,"carcinogenic effect
+estimates",0.20523314185428085
+8,50,mutation frequencies,-0.31870394197719815
+8,50,"carcinogenic effect
+estimates",0.21176922917448088
+9,50,mutation frequencies,-0.3049327839905291
+9,50,"carcinogenic effect
+estimates",0.2769833291199844
+10,50,mutation frequencies,-0.3368424852827079
+10,50,"carcinogenic effect
+estimates",0.27308215547040715
+11,50,mutation frequencies,-0.3638207866381556
+11,50,"carcinogenic effect
+estimates",0.33159976021406584
+12,50,mutation frequencies,-0.3005611641811638
+12,50,"carcinogenic effect
+estimates",0.3146946743992311
+13,50,mutation frequencies,-0.250744893439274
+13,50,"carcinogenic effect
+estimates",0.35370641089500354
+14,50,mutation frequencies,-0.18407561680660026
+14,50,"carcinogenic effect
+estimates",0.45513692578401194
+15,50,mutation frequencies,-0.1796881092950234
+15,50,"carcinogenic effect
+estimates",0.42522792780391977
+16,50,mutation frequencies,-0.14993595786151184
+16,50,"carcinogenic effect
+estimates",0.41222401563866223
+17,50,mutation frequencies,-0.09381157259929253
+17,50,"carcinogenic effect
+estimates",0.43823183996917725
+18,50,mutation frequencies,-0.10143051488900837
+18,50,"carcinogenic effect
+estimates",0.4579409140517064
+19,50,mutation frequencies,-0.10403129732205987
+19,50,"carcinogenic effect
+estimates",0.474025974025974
+20,50,mutation frequencies,-0.09622895002290538
+20,50,"carcinogenic effect
+estimates",0.5441558441558442
+21,50,mutation frequencies,-0.09687914563116826
+21,50,"carcinogenic effect
+estimates",0.538961038961039
+22,50,mutation frequencies,-0.05141568822668316
+22,50,"carcinogenic effect
+estimates",0.6298701298701299
+23,50,mutation frequencies,-0.03778521674138171
+23,50,"carcinogenic effect
+estimates",0.625974025974026
+24,50,mutation frequencies,-0.02147743938582967
+24,50,"carcinogenic effect
+estimates",0.674025974025974
+25,50,mutation frequencies,0.02147043777541189
+25,50,"carcinogenic effect
+estimates",0.7077922077922078
+26,50,mutation frequencies,0.001951857979582899
+26,50,"carcinogenic effect
+estimates",0.7090909090909091
+27,50,mutation frequencies,0.14798027145462256
+27,50,"carcinogenic effect
+estimates",0.7168831168831169
+28,50,mutation frequencies,0.20097587543923362
+28,50,"carcinogenic effect
+estimates",0.7233766233766235
+29,50,mutation frequencies,0.1920579429059127
+29,50,"carcinogenic effect
+estimates",0.7142857142857143
+30,50,mutation frequencies,0.21442499653265035
+30,50,"carcinogenic effect
+estimates",0.7233766233766235
+31,50,mutation frequencies,0.2775431933366491
+31,50,"carcinogenic effect
+estimates",0.7623376623376624
+32,50,mutation frequencies,0.27550363190861743
+32,50,"carcinogenic effect
+estimates",0.7441558441558441
+33,50,mutation frequencies,0.28144309769266757
+33,50,"carcinogenic effect
+estimates",0.7467532467532467
+34,50,mutation frequencies,0.289892890464041
+34,50,"carcinogenic effect
+estimates",0.7350649350649351
+35,50,mutation frequencies,0.2833009045098047
+35,50,"carcinogenic effect
+estimates",0.7337662337662337
+5,60,mutation frequencies,-0.2135729832856665
+5,60,"carcinogenic effect
+estimates",0.21035353226015202
+6,60,mutation frequencies,-0.25104774588082224
+6,60,"carcinogenic effect
+estimates",0.19976970673762864
+7,60,mutation frequencies,-0.40152342528743795
+7,60,"carcinogenic effect
+estimates",0.14902279090056061
+8,60,mutation frequencies,-0.41851679916715995
+8,60,"carcinogenic effect
+estimates",0.15555887822076064
+9,60,mutation frequencies,-0.38604566819729413
+9,60,"carcinogenic effect
+estimates",0.2444735487068407
+10,60,mutation frequencies,-0.41660103962476214
+10,60,"carcinogenic effect
+estimates",0.24057237505726345
+11,60,mutation frequencies,-0.4511667096696116
+11,60,"carcinogenic effect
+estimates",0.2925880237182934
+12,60,mutation frequencies,-0.4000069205948257
+12,60,"carcinogenic effect
+estimates",0.2769833291199844
+13,60,mutation frequencies,-0.3543003968396124
+13,60,"carcinogenic effect
+estimates",0.30949310953312814
+14,60,mutation frequencies,-0.28926236509747394
+14,60,"carcinogenic effect
+estimates",0.418725971721291
+15,60,mutation frequencies,-0.284272962517778
+15,60,"carcinogenic effect
+estimates",0.38621619130814727
+16,60,mutation frequencies,-0.2536697110969752
+16,60,"carcinogenic effect
+estimates",0.3732122791428898
+17,60,mutation frequencies,-0.19354921934639135
+17,60,"carcinogenic effect
+estimates",0.397919712256879
+18,60,mutation frequencies,-0.20162611221550356
+18,60,"carcinogenic effect
+estimates",0.41247160343664335
+19,60,mutation frequencies,-0.20552855309709397
+19,60,"carcinogenic effect
+estimates",0.42857142857142855
+20,60,mutation frequencies,-0.19967489177470837
+20,60,"carcinogenic effect
+estimates",0.5064935064935064
+21,60,mutation frequencies,-0.20162611221550356
+21,60,"carcinogenic effect
+estimates",0.5012987012987014
+22,60,mutation frequencies,-0.15950551256624476
+22,60,"carcinogenic effect
+estimates",0.5922077922077922
+23,60,mutation frequencies,-0.1521674838969104
+23,60,"carcinogenic effect
+estimates",0.5883116883116882
+24,60,mutation frequencies,-0.13281275332046502
+24,60,"carcinogenic effect
+estimates",0.648051948051948
+25,60,mutation frequencies,-0.09502127774715441
+25,60,"carcinogenic effect
+estimates",0.6896103896103897
+26,60,mutation frequencies,-0.11454619783218614
+26,60,"carcinogenic effect
+estimates",0.6818181818181818
+27,60,mutation frequencies,0.029344825191166803
+27,60,"carcinogenic effect
+estimates",0.6883116883116883
+28,60,mutation frequencies,0.08360449498323959
+28,60,"carcinogenic effect
+estimates",0.7116883116883117
+29,60,mutation frequencies,0.07652250422872604
+29,60,"carcinogenic effect
+estimates",0.6948051948051948
+30,60,mutation frequencies,0.09814755149450073
+30,60,"carcinogenic effect
+estimates",0.7116883116883117
+31,60,mutation frequencies,0.15344606624508603
+31,60,"carcinogenic effect
+estimates",0.7532467532467533
+32,60,mutation frequencies,0.15404615698143492
+32,60,"carcinogenic effect
+estimates",0.7324675324675325
+33,60,mutation frequencies,0.16124840859653108
+33,60,"carcinogenic effect
+estimates",0.7350649350649351
+34,60,mutation frequencies,0.1697009461439299
+34,60,"carcinogenic effect
+estimates",0.7207792207792207
+35,60,mutation frequencies,0.1572960759050939
+35,60,"carcinogenic effect
+estimates",0.7194805194805195
+5,70,mutation frequencies,-0.15117648345849363
+5,70,"carcinogenic effect
+estimates",0.2500428779696146
+6,70,mutation frequencies,-0.18764449481909518
+6,70,"carcinogenic effect
+estimates",0.23813607425677585
+7,70,mutation frequencies,-0.3427405054530277
+7,70,"carcinogenic effect
+estimates",0.1921609672138808
+8,70,mutation frequencies,-0.36264049364895173
+8,70,"carcinogenic effect
+estimates",0.19738983707004082
+9,70,mutation frequencies,-0.32657317511243755
+9,70,"carcinogenic effect
+estimates",0.2912876325017676
+10,70,mutation frequencies,-0.3597792303895071
+10,70,"carcinogenic effect
+estimates",0.2834852852026131
+11,70,mutation frequencies,-0.4173814769511336
+11,70,"carcinogenic effect
+estimates",0.3302993689975401
+12,70,mutation frequencies,-0.36459376002845517
+12,70,"carcinogenic effect
+estimates",0.3146946743992311
+13,70,mutation frequencies,-0.3221057116765609
+13,70,"carcinogenic effect
+estimates",0.3472044548123748
+14,70,mutation frequencies,-0.26175291609732876
+14,70,"carcinogenic effect
+estimates",0.4499353609179089
+15,70,mutation frequencies,-0.2571623303316458
+15,70,"carcinogenic effect
+estimates",0.418725971721291
+16,70,mutation frequencies,-0.2320747869508618
+16,70,"carcinogenic effect
+estimates",0.40572205955603347
+17,70,mutation frequencies,-0.17198788309870294
+17,70,"carcinogenic effect
+estimates",0.429129101453497
+18,70,mutation frequencies,-0.17490261862271314
+18,70,"carcinogenic effect
+estimates",0.45209485982976966
+19,70,mutation frequencies,-0.17815359666402752
+19,70,"carcinogenic effect
+estimates",0.4675324675324675
+20,70,mutation frequencies,-0.17230183618966166
+20,70,"carcinogenic effect
+estimates",0.5454545454545454
+21,70,mutation frequencies,-0.17165164058139878
+21,70,"carcinogenic effect
+estimates",0.5376623376623376
+22,70,mutation frequencies,-0.14708791821810627
+22,70,"carcinogenic effect
+estimates",0.6012987012987012
+23,70,mutation frequencies,-0.13941442039061527
+23,70,"carcinogenic effect
+estimates",0.6000000000000001
+24,70,mutation frequencies,-0.10803802842568867
+24,70,"carcinogenic effect
+estimates",0.6623376623376623
+25,70,mutation frequencies,-0.08718298975470283
+25,70,"carcinogenic effect
+estimates",0.6948051948051948
+26,70,mutation frequencies,-0.11125590483622526
+26,70,"carcinogenic effect
+estimates",0.6909090909090909
+27,70,mutation frequencies,0.00260758187585238
+27,70,"carcinogenic effect
+estimates",0.6844155844155845
+28,70,mutation frequencies,0.055284625929886276
+28,70,"carcinogenic effect
+estimates",0.6961038961038961
+29,70,mutation frequencies,0.05664081706038781
+29,70,"carcinogenic effect
+estimates",0.6792207792207792
+30,70,mutation frequencies,0.07797272601187286
+30,70,"carcinogenic effect
+estimates",0.6961038961038961
+31,70,mutation frequencies,0.12089703503657315
+31,70,"carcinogenic effect
+estimates",0.7311688311688311
+32,70,mutation frequencies,0.12215727075193414
+32,70,"carcinogenic effect
+estimates",0.7090909090909091
+33,70,mutation frequencies,0.1280468596892737
+33,70,"carcinogenic effect
+estimates",0.7
+34,70,mutation frequencies,0.13714663651998352
+34,70,"carcinogenic effect
+estimates",0.6909090909090909
+35,70,mutation frequencies,0.12475636161899656
+35,70,"carcinogenic effect
+estimates",0.6896103896103897
+5,80,mutation frequencies,-0.20195745877588825
+5,80,"carcinogenic effect
+estimates",0.42070706452030404
+6,80,mutation frequencies,-0.23528377210524273
+6,80,"carcinogenic effect
+estimates",0.4180611081396732
+7,80,mutation frequencies,-0.35013448735741504
+7,80,"carcinogenic effect
+estimates",0.39347245667604164
+8,80,mutation frequencies,-0.36783516195029825
+8,80,"carcinogenic effect
+estimates",0.40393019638836164
+9,80,mutation frequencies,-0.33751183318737044
+9,80,"carcinogenic effect
+estimates",0.4811447501145269
+10,80,mutation frequencies,-0.3619922874936963
+10,80,"carcinogenic effect
+estimates",0.46944122916579517
+11,80,mutation frequencies,-0.3916612794367567
+11,80,"carcinogenic effect
+estimates",0.47854396768147534
+12,80,mutation frequencies,-0.33957323541296863
+12,80,"carcinogenic effect
+estimates",0.4681408379492694
+13,80,mutation frequencies,-0.29911286153725974
+13,80,"carcinogenic effect
+estimates",0.5058521832285161
+14,80,mutation frequencies,-0.24245406824146987
+14,80,"carcinogenic effect
+estimates",0.563069396755649
+15,80,mutation frequencies,-0.2424746528160831
+15,80,"carcinogenic effect
+estimates",0.5422631372912371
+16,80,mutation frequencies,-0.2195283667873599
+16,80,"carcinogenic effect
+estimates",0.5331603987755569
+17,80,mutation frequencies,-0.1660121082060599
+17,80,"carcinogenic effect
+estimates",0.5383619636416598
+18,80,mutation frequencies,-0.17385754600703143
+18,80,"carcinogenic effect
+estimates",0.5339396189368832
+19,80,mutation frequencies,-0.17385754600703143
+19,80,"carcinogenic effect
+estimates",0.5454545454545454
+20,80,mutation frequencies,-0.16993594722491792
+20,80,"carcinogenic effect
+estimates",0.6064935064935065
+21,80,mutation frequencies,-0.17451114580405033
+21,80,"carcinogenic effect
+estimates",0.6051948051948052
+22,80,mutation frequencies,-0.13248340045186008
+22,80,"carcinogenic effect
+estimates",0.6155844155844156
+23,80,mutation frequencies,-0.12475466119626988
+23,80,"carcinogenic effect
+estimates",0.6090909090909091
+24,80,mutation frequencies,-0.11678166410200999
+24,80,"carcinogenic effect
+estimates",0.6597402597402597
+25,80,mutation frequencies,-0.10562515599563004
+25,80,"carcinogenic effect
+estimates",0.6376623376623377
+26,80,mutation frequencies,-0.12459190227348312
+26,80,"carcinogenic effect
+estimates",0.6675324675324675
+27,80,mutation frequencies,0.0039318513454452515
+27,80,"carcinogenic effect
+estimates",0.6467532467532467
+28,80,mutation frequencies,0.04217091665467506
+28,80,"carcinogenic effect
+estimates",0.6935064935064935
+29,80,mutation frequencies,0.03435875647191461
+29,80,"carcinogenic effect
+estimates",0.6935064935064935
+30,80,mutation frequencies,0.05454008673314464
+30,80,"carcinogenic effect
+estimates",0.6935064935064935
+31,80,mutation frequencies,0.08265347327310868
+31,80,"carcinogenic effect
+estimates",0.6909090909090909
+32,80,mutation frequencies,0.07903413766120361
+32,80,"carcinogenic effect
+estimates",0.6857142857142857
+33,80,mutation frequencies,0.0820000861326098
+33,80,"carcinogenic effect
+estimates",0.661038961038961
+34,80,mutation frequencies,0.08918734467809751
+34,80,"carcinogenic effect
+estimates",0.6792207792207792
+35,80,mutation frequencies,0.06956310463568748
+35,80,"carcinogenic effect
+estimates",0.6753246753246753
