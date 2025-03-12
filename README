@@ -1,1 +1,7 @@
-This repository contains the code (in R) and necessary files to accompany the manuscript "Age distinguishes selection from causation in cancer genomes".
+This repository contains the code (in R) and files to accompany the manuscript "Age distinguishes selection from causation in cancer genomes".
+
+Figures 1,S1 comparisons of cancer and normal tissue genomes and carcinogenic effect estimates in folder "cancer vs normal tissue"
+Figures 2,S2,4,S4,6,S6 mathematical modelling analyses in folder "mathematical modelling"
+Figures 3,S3 analyses of AML in folder "AML analyses
+Figures 4,S4,6,S6 analyses of COSMIC data in folder "COSMIC analyses"
+Figures 5,S5 analyses of TCGA data in folder "copy number analyses"
