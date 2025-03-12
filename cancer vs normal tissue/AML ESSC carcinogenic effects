@@ -54,7 +54,7 @@ rbind(theory_lines,theory_lines2)->theory_lines3
 theory_lines3<-theory_lines3[!duplicated(paste(theory_lines3$causal_effect,theory_lines3$freq,theory_lines3$freq_in_cancer)),]
 
 
-YF3<-read.csv("~/HMS Dropbox/Naxerova_Lab/Dave/Causation/to publish/data/ESSC gene summary.csv")
+YF3<-read.csv("ESSC gene summary.csv")
 
 YF3$frac_C_samples_jitter<-YF3$frac_C_samples*exp(rnorm(n=nrow(YF3),mean=0,sd=0.03))
 
