@@ -2,7 +2,7 @@ library(tidyverse)
 library(ggrepel)
 library(viridis)
 
-AMLCH_overview <- read.csv("~/HMS Dropbox/Naxerova_Lab/Dave/Causation/to publish/data/AML normal blood statistics.csv")
+AMLCH_overview <- read.csv("AML normal blood statistics.csv")
 
 ggplot(AMLCH_overview,aes(x=reorder(Gene,AML_mean_age),y=AML_mean_age,ymin=AML_mean_age_l,ymax=AML_mean_age_h,colour=AML_f))+geom_point()+geom_errorbar(width=0)+theme_minimal()+theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+labs(x="",y="mean age in AML",colour="frequency\nin AML")+scale_colour_gradient(high="black",low=viridis(n=1,begin=0.8,end=0.8,option="mako",alpha=0.5),limits=c(0,NA))
 
